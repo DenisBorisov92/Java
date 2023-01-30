@@ -9,7 +9,7 @@ public class HW_05 {
         
         HashMap <Integer, String> spisok = new HashMap<>();
 
-        spisok.putIfAbsent(1, "Борисов Демид Семенович 22 м");
+        spisok.put(1, "Борисов Демид Семенович 22 м");
         spisok.put(2, "Семенов Игорь Игоревич 25 м" );
         spisok.put(3, "Боровикова Татьяна Николаевна 18 ж");
         spisok.put(4, "Петрова Инна Никифоровна 37 ж");
@@ -20,8 +20,9 @@ public class HW_05 {
 
         Collection<String> sValues = spisok.values();
         Set<Integer> keySet = spisok.keySet();
+
         for (int i = 0; i < keySet.size(); i++) {
-            String[] tmp = ((String) sValues .toArray()[i]).split(" ");
+            String[] tmp = ((String) sValues.toArray()[i]).split(" ");
             System.out.println(tmp[0]+ " " + tmp[1].charAt(0)+ "." + tmp[2].charAt(0));
             spisok.compute((Integer)keySet.toArray()[i], (k, v) -> v = v.replace(" ж"," Ж"));
             spisok.compute((Integer)keySet.toArray()[i], (k, v) -> v = v.replace(" м"," М"));
